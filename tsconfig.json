@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "removeComments": false,
+    "rootDirs": ["./src"],
+    "baseUrl": "./src",
+    "jsx": "react",
+    "allowJs": true,
+    "importHelpers": true,
+    "experimentalDecorators": true,
+    "typeRoots": ["node", "node_modules/@types"]
+  }
+}
