@@ -12,7 +12,7 @@ const config = merge(baseConfig, {
   output: {
     filename: '[name].js',
     libraryTarget: 'commonjs2',
-    path: path.resolve(__dirname, '../dist/electron')
+    path: path.resolve(__dirname, '../dist')
   },
   target: 'electron-main'
 })

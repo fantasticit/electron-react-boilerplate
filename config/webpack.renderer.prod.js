@@ -9,7 +9,7 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 module.exports = merge(baseConfig, {
   mode: 'production',
   entry: {
-    app: './src/renderer/index.tsx'
+    renderer: './src/renderer/index.tsx'
   },
   devtool: false,
   optimization: {
@@ -60,9 +60,5 @@ module.exports = merge(baseConfig, {
       nodeModules: path.resolve(__dirname, '../node_modules')
     })
   ],
-  node: {
-    __dirname: false,
-    __filename: false
-  },
   target: 'electron-renderer'
 })

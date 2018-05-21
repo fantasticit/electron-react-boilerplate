@@ -9,7 +9,8 @@
 * 主进程热重启
 * 渲染进程热替换
 
-开发模式：`npm start`
-生产模式：`npm build`
+开发模式：`npm run start`
+
+生产模式：`npm run build`
 
 开发模式默认运行在：`http://localhost:8080`
