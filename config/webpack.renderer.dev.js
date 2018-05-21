@@ -9,7 +9,7 @@ module.exports = merge(baseConfig, {
   entry: {
     app: [
       'react-hot-loader/patch',
-      `webpack-dev-server/client?http://localhost:8080/`,
+      `webpack-dev-server/client?http://localhost:8080`,
       'webpack/hot/only-dev-server',
       './src/renderer/index.tsx'
     ]

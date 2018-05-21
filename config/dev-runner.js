@@ -17,24 +17,10 @@ function startRender() {
   return new Promise((resolve, reject) => {
     const compiler = webpack(rendererConfig)
 
-    compiler.watch({}, (err, stats) => {
-      if (err) {
-        console.log('here error: ', err)
-        reject(err)
-      }
-
-      if (electronProcess && electronProcess.kill) {
-        process.kill(electronProcess.pid)
-        electronProcess = null
-        startElectron()
-      }
-
-      resolve()
-    })
-
     const server = new webpackDevServer(compiler, {
       contentBase: path.resolve(__dirname, '../dist'),
-      quiet: true
+      quiet: true,
+      hot: true
     })
 
     server.listen(8080)
@@ -47,11 +33,18 @@ function startMain() {
   return new Promise((resolve, reject) => {
     const compiler = webpack(mainConfig)
 
-    compiler.run((err, stats) => {
+    compiler.watch({}, (err, stats) => {
       if (err) {
         console.log('here error: ', err)
         reject(err)
       }
+
+      if (electronProcess && electronProcess.kill) {
+        process.kill(electronProcess.pid)
+        electronProcess = null
+        startElectron()
+      }
+
       resolve()
     })
   })
