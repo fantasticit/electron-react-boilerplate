@@ -1,6 +1,7 @@
 process.env.NODE_ENV = 'development'
 
 const ora = require('ora')
+const rm = require('rimraf')
 const chalk = require('chalk')
 const electron = require('electron')
 const path = require('path')
@@ -66,7 +67,7 @@ function electronLog(msg, color) {
 }
 
 function startElectron() {
-  electronProcess = spawn(electron, ['--inspect=5858', path.join(__dirname, '../dist/electron/main.js')])
+  electronProcess = spawn(electron, ['--inspect=5858', path.join(__dirname, '../dist/main.js')])
 
   electronProcess.stdout.on('data', data => electronLog(data, 'blue'))
   electronProcess.stderr.on('data', data => electronLog(data, 'red'))
@@ -74,6 +75,13 @@ function startElectron() {
 
 const spinner = ora('Building dev-server...\n\n')
 spinner.start()
-Promise.all([startRender(), startMain()])
-  .then(() => spinner.stop() && startElectron())
-  .catch(err => console.log(err))
+
+rm(path.resolve(__dirname, '../dist'), err => {
+  if (err) {
+    throw new Error(err)
+  }
+
+  Promise.all([startRender(), startMain()])
+    .then(() => spinner.stop() && startElectron())
+    .catch(err => console.log(err))
+})
