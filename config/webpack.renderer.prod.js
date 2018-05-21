@@ -49,7 +49,7 @@ module.exports = merge(baseConfig, {
     new webpack.optimize.ModuleConcatenationPlugin(),
     new HtmlWebpackPlugin({
       filename: './index.html',
-      template: 'index.html',
+      template: 'src/index.html',
       inject: true,
       hash: true,
       minify: {

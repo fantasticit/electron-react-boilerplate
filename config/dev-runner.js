@@ -17,6 +17,21 @@ function startRender() {
   return new Promise((resolve, reject) => {
     const compiler = webpack(rendererConfig)
 
+    compiler.watch({}, (err, stats) => {
+      if (err) {
+        console.log('here error: ', err)
+        reject(err)
+      }
+
+      if (electronProcess && electronProcess.kill) {
+        process.kill(electronProcess.pid)
+        electronProcess = null
+        startElectron()
+      }
+
+      resolve()
+    })
+
     const server = new webpackDevServer(compiler, {
       contentBase: path.resolve(__dirname, '../dist'),
       quiet: true
@@ -32,18 +47,11 @@ function startMain() {
   return new Promise((resolve, reject) => {
     const compiler = webpack(mainConfig)
 
-    compiler.watch({}, (err, stats) => {
+    compiler.run((err, stats) => {
       if (err) {
         console.log('here error: ', err)
         reject(err)
       }
-
-      if (electronProcess && electronProcess.kill) {
-        process.kill(electronProcess.pid)
-        electronProcess = null
-        startElectron()
-      }
-
       resolve()
     })
   })
@@ -56,7 +64,11 @@ function electronLog(msg, color) {
     .split(/\r?\n/)
     .forEach(line => (info += `  ${line}\n`))
   console.log(
-    chalk[color].bold('「 Electron --------------------') + '\n\n' + info + '\n\n' + '-------------------- Electron」'
+    chalk[color].bold('『 Electron ----------------------------------------------------------- ') +
+      '\n\n' +
+      info +
+      '\n\n' +
+      ' ------------------------------------------------------------- Electron 』'
   )
 }
 
@@ -67,7 +79,7 @@ function startElectron() {
   electronProcess.stderr.on('data', data => electronLog(data, 'red'))
 }
 
-const spinner = ora('Building server...\n\n')
+const spinner = ora('Building dev-server...\n\n')
 spinner.start()
 Promise.all([startRender(), startMain()])
   .then(() => spinner.stop() && startElectron())

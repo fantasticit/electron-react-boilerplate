@@ -7,6 +7,6 @@ export interface AppProps {
 
 export default class App extends React.Component {
   render() {
-    return <h1>Hello Electron, module hot! yes</h1>
+    return <h1>Hello Electron!</h1>
   }
 }

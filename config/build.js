@@ -29,31 +29,41 @@ function pack(config) {
   })
 }
 
+function remove(pathes) {
+  function deleteFile(path) {
+    return new Promise((resolve, reject) => {
+      rm(path, err => {
+        if (err) {
+          reject(err)
+        }
+        resolve()
+      })
+    })
+  }
+
+  return Promise.all([...pathes].map(path => deleteFile(path)))
+}
+
 const spinner = ora('Building for production...')
 spinner.start()
 
-rm(path.resolve(__dirname, '../dist'), err => {
-  if (err) {
-    throw new Error(err)
-  }
+remove([path.resolve(__dirname, '../dist'), path.resolve(__dirname, '../release')])
+  .then(() => Promise.all([pack(renderConfig), pack(mainConfig)]))
+  .then(statses => {
+    spinner.stop()
 
-  Promise.all([pack(renderConfig), pack(mainConfig)])
-    .then(statses => {
-      spinner.stop()
-
-      statses.forEach(stats =>
-        process.stdout.write(
-          stats.toString({
-            colors: true,
-            modules: false,
-            children: false,
-            chunks: false,
-            chunkModules: false
-          }) + '\n\n'
-        )
+    statses.forEach(stats =>
+      process.stdout.write(
+        stats.toString({
+          colors: true,
+          modules: false,
+          children: false,
+          chunks: false,
+          chunkModules: false
+        }) + '\n\n'
       )
+    )
 
-      log(chalk.cyan('Build complete.\n'))
-    })
-    .catch(err => console.log(err))
-})
+    log(chalk.cyan('Build complete.\nNow run electron-builder...'))
+  })
+  .catch(err => console.log(err))
