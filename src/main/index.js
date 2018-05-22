@@ -1,4 +1,5 @@
 import { app, BrowserWindow } from 'electron'
+import { Z_DEFAULT_COMPRESSION } from 'zlib'
 
 let mainWindow = null
 
@@ -6,7 +7,8 @@ app.on('ready', () => {
   mainWindow = new BrowserWindow({
     width: 1024,
     height: 728,
-    show: false
+    show: false,
+    frame: false
   })
 
   const winURL = process.env.NODE_ENV === 'production' ? `file://${__dirname}/index.html` : 'http://localhost:8080'
