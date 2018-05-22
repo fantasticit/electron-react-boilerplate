@@ -47,7 +47,7 @@ function remove(pathes) {
 const spinner = ora('Building for production...')
 spinner.start()
 
-remove([path.resolve(__dirname, '../dist'), path.resolve(__dirname, '../release')])
+remove([path.resolve(__dirname, '../dist'), path.resolve(__dirname, '../build')])
   .then(() => Promise.all([pack(renderConfig), pack(mainConfig)]))
   .then(statses => {
     spinner.stop()
