@@ -1,5 +1,5 @@
 {
-  "name": "create-electron-app-with-react",
+  "name": "create-electron-app",
   "version": "1.0.0",
   "main": "./dist/main.js",
   "scripts": {
