@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "./dist/main.js",
   "scripts": {
-    "start": "node config/dev-runner.js",
+    "dev": "node config/dev-runner.js",
     "build": "node config/build.js && electron-builder"
   },
   "build": {
