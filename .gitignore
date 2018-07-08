@@ -1,5 +1,6 @@
 .cache-loader
 .DS_Store
+/.cache-loader/
 node_modules/
 /dist/
 /release/
