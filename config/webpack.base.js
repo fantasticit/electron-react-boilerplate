@@ -5,7 +5,8 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, '../dist'),
-    publicPath: process.env.NODE_ENV === 'development' ? 'http://localhost:8080/' : './'
+    publicPath:
+      process.env.NODE_ENV === 'development' ? 'http://localhost:8080/' : './'
   },
   module: {
     rules: [
@@ -13,7 +14,12 @@ module.exports = {
         test: /\.scss$/,
         use: [
           'css-hot-loader',
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../'
+            }
+          },
           'css-loader?importLoaders=1',
           {
             loader: 'postcss-loader',
