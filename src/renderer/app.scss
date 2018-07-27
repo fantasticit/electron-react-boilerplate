@@ -1,5 +1,43 @@
-h1 {
-  color: red;
-  border: 1px solid #ccc;
-  transition: all ease 0.3s;
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', sans-serif;
+}
+
+.app {
+  font-size: 1.5rem;
+  text-align: center;
+
+  header {
+    padding: 60px 0 70px;
+    color: #fff;
+    background: #282c34;
+  }
+
+  code {
+    color: red;
+  }
+
+  @media (min-width: 992px) {
+    p {
+      font-size: 2.4rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    p {
+      font-size: 1.8rem;
+    }
+  }
+
+  p {
+    color: #9feaf9;
+    font-size: 1.4rem;
+    font-weight: 300;
+  }
 }

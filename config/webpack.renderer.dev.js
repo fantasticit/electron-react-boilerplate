@@ -3,13 +3,14 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const baseConfig = require('./webpack.base')
+let port = process.argv[2] || 8080
 
 module.exports = merge(baseConfig, {
   mode: 'development',
   entry: {
     renderer: [
       'react-hot-loader/patch',
-      `webpack-dev-server/client?http://localhost:8080`,
+      `webpack-dev-server/client?http://localhost:${port}`,
       'webpack/hot/only-dev-server',
       './src/renderer/index.tsx'
     ]

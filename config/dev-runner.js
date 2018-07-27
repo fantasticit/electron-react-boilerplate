@@ -12,6 +12,9 @@ const webpackDevServer = require('webpack-dev-server')
 const mainConfig = require('./webpack.main')
 const rendererConfig = require('./webpack.renderer.dev')
 
+let port = process.argv[2] || 8080
+process.env.DEV_PORT = port // 注入 process.env 以便 main 进程确定端口，见 src/main/index.js
+
 let electronProcess = null
 
 function startRender() {
@@ -24,7 +27,7 @@ function startRender() {
       hot: true
     })
 
-    server.listen(8080)
+    server.listen(port)
 
     resolve()
   })
@@ -58,7 +61,9 @@ function electronLog(msg, color) {
     .split(/\r?\n/)
     .forEach(line => (info += `  ${line}\n`))
   console.log(
-    chalk[color].bold('『 Electron ----------------------------------------------------------- ') +
+    chalk[color].bold(
+      '『 Electron ----------------------------------------------------------- '
+    ) +
       '\n\n' +
       info +
       '\n\n' +
@@ -67,7 +72,10 @@ function electronLog(msg, color) {
 }
 
 function startElectron() {
-  electronProcess = spawn(electron, ['--inspect=5858', path.join(__dirname, '../dist/main.js')])
+  electronProcess = spawn(electron, [
+    '--inspect=5858',
+    path.join(__dirname, '../dist/main.js')
+  ])
 
   electronProcess.stdout.on('data', data => electronLog(data, 'blue'))
   electronProcess.stderr.on('data', data => electronLog(data, 'red'))

@@ -2,6 +2,10 @@ import { app, BrowserWindow } from 'electron'
 
 let mainWindow = null
 
+let port = process.env.DEV_PORT || 8080
+
+// console.log(port)
+
 app.on('ready', () => {
   mainWindow = new BrowserWindow({
     width: 1024,
@@ -9,7 +13,10 @@ app.on('ready', () => {
     show: false
   })
 
-  const winURL = process.env.NODE_ENV === 'production' ? `file://${__dirname}/index.html` : 'http://localhost:8080'
+  const winURL =
+    process.env.NODE_ENV === 'production'
+      ? `file://${__dirname}/index.html`
+      : `http://localhost:${port}`
   mainWindow.loadURL(winURL)
 
   mainWindow.webContents.on('did-finish-load', () => {

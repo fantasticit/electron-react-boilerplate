@@ -1,12 +1,16 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
+let port = process.argv[2] || 8080
+
 module.exports = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, '../dist'),
     publicPath:
-      process.env.NODE_ENV === 'development' ? 'http://localhost:8080/' : './'
+      process.env.NODE_ENV === 'development'
+        ? `http://localhost:${port}/`
+        : './'
   },
   module: {
     rules: [
