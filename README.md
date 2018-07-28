@@ -60,17 +60,9 @@ npm run build
 If you want alter the icon or the app's name, you can edit the `package.json`:
 
 ```json
+"name": "electron-react-boilerplate", // app name
 "build": {
-  "productName": "ElectronReact",
-  "appId": "org.develar.ElectronReact",
-  "directories": {
-    "output": "build"
-  },
-  "files": [
-    "dist/",
-    "node_modules/",
-    "package.json"
-  ],
+  // icons here
   "mac": {
     "icon": "icons/icon.icns"
   },
