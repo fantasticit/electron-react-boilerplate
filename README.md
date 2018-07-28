@@ -2,6 +2,8 @@
 
 ### A boilerplate for developing Electron App with React and TypeScript
 
+[![Build Status](https://travis-ci.org/justemit/electron-react-boilerplate.svg?branch=master)](https://travis-ci.org/justemit/electron-react-boilerplate)
+
 ## Screenshot
 
 ![electron-react-boilerplate](http://pcj3271t7.bkt.clouddn.com/electron-react-boilerplate.png)
