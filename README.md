@@ -37,6 +37,16 @@ The app will run at `http://localhost:8080` default, if you want to run it at ot
 npm run dev other-port // such as npm run dev 9090
 ```
 
+## Test
+
+The project uses `Jest` to test:
+
+```bash
+npm test
+```
+
+If you want to change the test config, edit the `jest.config.js`.
+
 ## Packaging
 
 To package the app:

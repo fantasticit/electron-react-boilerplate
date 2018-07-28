@@ -1,7 +1,7 @@
-import React, { SFC } from 'react'
+import * as React from 'react'
 import './hero.scss'
 
-const Hero: SFC = () => (
+const Hero: React.SFC = () => (
   <div className="hero">
     <svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg">
       <g fill="none" fillRule="evenodd">
