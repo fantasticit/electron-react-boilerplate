@@ -5,7 +5,7 @@ import App from '../src/renderer/App'
 
 configure({ adapter: new Adapter() })
 
-test('Welcome to Electron', () => {
+test('Hello, Electron & React', () => {
   const wrapper = mount(<App />)
   const p = wrapper.find('header p')
   expect(p.text()).toBe('使用 Electron 和 React 构建跨平台的桌面应用')
