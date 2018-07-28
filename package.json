@@ -1,5 +1,5 @@
 {
-  "name": "create-electron-app",
+  "name": "electron-react-boilerplate",
   "version": "1.0.0",
   "main": "./dist/main.js",
   "scripts": {
