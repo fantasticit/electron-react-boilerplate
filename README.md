@@ -61,8 +61,7 @@ If you want alter the icon or the app's name, you can edit the `package.json`:
 
 ```json
 "name": "electron-react-boilerplate", // app name
-"build": {
-  // icons here
+"build": { // icons here
   "mac": {
     "icon": "icons/icon.icns"
   },
