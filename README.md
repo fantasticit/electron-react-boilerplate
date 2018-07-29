@@ -57,11 +57,10 @@ To package the app:
 npm run build
 ```
 
-If you want alter the icon or the app's name, you can edit the `package.json`:
+If you want alter the icon, you can edit the `package.json`:
 
 ```json
-"name": "electron-react-boilerplate", // app name
-"build": { // icons here
+"build": {
   "mac": {
     "icon": "icons/icon.icns"
   },
@@ -73,6 +72,8 @@ If you want alter the icon or the app's name, you can edit the `package.json`:
   }
 }
 ```
+
+To alter the app's name, edit the `index.html`'s title.
 
 ## Module Structure
 
