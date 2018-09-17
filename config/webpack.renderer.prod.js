@@ -25,6 +25,9 @@ module.exports = merge(baseConfig, {
         sourceMap: true
       })
     ],
+    runtimeChunk: {
+      name: 'manifest'
+    },
     splitChunks: {
       cacheGroups: {
         commons: {
