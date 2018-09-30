@@ -15,7 +15,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        test: /\.(s)?css$/,
         use: [
           'css-hot-loader',
           {
