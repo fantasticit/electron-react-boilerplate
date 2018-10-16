@@ -1,63 +1,71 @@
 # electron-react-boilerplate
 
-### A boilerplate for developing Electron App with React and TypeScript
+### 使用 React.js 开发 Electron App 应用
 
 [![Build Status](https://travis-ci.org/justemit/electron-react-boilerplate.svg?branch=master)](https://travis-ci.org/justemit/electron-react-boilerplate)
 
-## Screenshot
+## 截图
 
 ![electron-react-boilerplate](http://pcj3271t7.bkt.clouddn.com/electron-react-boilerplate.png)
 
-## Install
+## 安装
 
-> I recomment you to use the [`hy-cli`](https://github.com/justemit/hy-cli) to generate project with this boilerplate.
+> 可以试一下使用 [`q-cli`](https://github.com/justemit/q-cli)
 
-1.  clone the repo via git:
+1.  使用 git clone:
 
 ```bash
 git clone --depth=1 https://github.com/justemit/electron-react-boilerplate.git ypur-project-name
 ```
 
-2.  install dependencies with npm(or yarn).
+2.  安装依赖
 
 ```bash
 cd your-project-name
 npm install
 ```
 
-## Run
+此外,如果使用 [`q-cli`](https://github.com/justemit/q-cli),则仅需:
 
-Start the app in the `dev` enviroment. This starts the renderer proess in **hot-module-replacement** mode and starts a webpack dev server that sends hot updates to the renderer process:
+```shell
+q-cli init your-project-name
+
+# 接下来选择模板时选择本项目即可
+```
+
+## 运行
+
+开发模式下,运行本项目会开启一个 `renderer` 进程(支持模块热替换,即: **hot-module-replacement**)和一个 `electron` 主线程.
 
 ```bash
 npm run dev
 ```
 
-The app will run at `http://localhost:8080` default, if you want to run it at other port, just run:
+端口默认为: `8080`,如果需要指定其他端口,命令如下:
 
 ```bash
 npm run dev other-port // such as npm run dev 9090
 ```
 
-## Test
+## 测试
 
-The project uses `Jest` to test:
+本项目使用 `Jest` 进行测试:
 
 ```bash
 npm test
 ```
 
-If you want to change the test config, edit the `jest.config.js`.
+编辑 `jest.config.js` 以更改测试配置.
 
-## Packaging
+## 打包
 
-To package the app:
+运行:
 
 ```bash
 npm run build
 ```
 
-If you want alter the icon, you can edit the `package.json`:
+编辑 `package.json` 中相关字段,可以使用其他图标:
 
 ```json
 "build": {
@@ -73,11 +81,7 @@ If you want alter the icon, you can edit the `package.json`:
 }
 ```
 
-To alter the app's name, edit the `index.html`'s title.
-
-## Module Structure
-
-In develeopment, this boilerpolate uses two process to run app. One is `main process`, anoter is `renderer process`. If you edit the `src/main/index.js`, the electron will restart automatically, and you can see information in the console. As same, edit the `src/renderer`, the app's UI will hot update.
+修改 `index.html` 的标题,即可修改打包后 App 名称.
 
 ## License
 
