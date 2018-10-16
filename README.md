@@ -1,5 +1,7 @@
 # electron-react-boilerplate
 
+> [English](./README_EN.md)
+
 ### 使用 React.js 开发 Electron App 应用
 
 [![Build Status](https://travis-ci.org/justemit/electron-react-boilerplate.svg?branch=master)](https://travis-ci.org/justemit/electron-react-boilerplate)
