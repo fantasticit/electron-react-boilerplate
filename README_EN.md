@@ -6,7 +6,7 @@
 
 ## Screenshot
 
-![electron-react-boilerplate](http://pcj3271t7.bkt.clouddn.com/electron-react-boilerplate.png)
+![electron-react-boilerplate](https://user-images.githubusercontent.com/26452939/50197324-88a9ba80-0381-11e9-93a4-3db3dfd08433.png)
 
 ## Install
 
@@ -18,7 +18,7 @@
 git clone --depth=1 https://github.com/justemit/electron-react-boilerplate.git ypur-project-name
 ```
 
-2.  install dependencies with npm(or yarn).
+2. install dependencies with npm(or yarn).
 
 ```bash
 cd your-project-name
@@ -73,7 +73,7 @@ If you want alter the icon, you can edit the `package.json`:
 }
 ```
 
-To alter the app's name, edit the `index.html`'s title.
+To alter the app's name, just edit the `index.html`'s title.
 
 ## Module Structure
 

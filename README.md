@@ -8,7 +8,7 @@
 
 ## 截图
 
-![electron-react-boilerplate](http://pcj3271t7.bkt.clouddn.com/electron-react-boilerplate.png)
+![electron-react-boilerplate](https://user-images.githubusercontent.com/26452939/50197324-88a9ba80-0381-11e9-93a4-3db3dfd08433.png)
 
 ## 安装
 
@@ -37,7 +37,7 @@ q-cli init your-project-name
 
 ## 运行
 
-开发模式下,运行本项目会开启一个 `renderer` 进程(支持模块热替换,即: **hot-module-replacement**)和一个 `electron` 主线程.
+开发模式下,运行本项目会开启一个 `renderer` 进程(支持模块热替换,即: **hot-module-replacement**)和一个 `electron` 主进程.
 
 ```bash
 npm run dev
