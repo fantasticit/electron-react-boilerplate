@@ -19,7 +19,8 @@
       "package.json"
     ],
     "mac": {
-      "icon": "icons/icon.icns"
+      "icon": "icons/icon.icns",
+      "target": "pkg"
     },
     "win": {
       "icon": "icons/icon.ico"
