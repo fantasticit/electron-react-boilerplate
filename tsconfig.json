@@ -1,17 +1,33 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "noEmit": true,
+    "jsx": "preserve",
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["./renderer/*"]
+    },
+    "noUnusedParameters": false,
+    "preserveConstEnums": true,
     "removeComments": false,
-    "rootDirs": ["./src"],
-    "baseUrl": "./src",
-    "jsx": "react",
-    "allowJs": true,
-    "importHelpers": true,
+    "skipLibCheck": true,
+    "strict": false,
     "experimentalDecorators": true,
-    "typeRoots": ["node", "node_modules/@types"]
-  }
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "customMatcher": "\\.(c|le|sa|sc)ss$"
+        }
+      }
+    ]
+  },
+  "include": ["type.d.ts", "src/*.ts", "src/*.tsx", "src/**/*", "*.js", "node_modules/@types"]
 }
