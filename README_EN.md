@@ -10,12 +10,12 @@
 
 ## Install
 
-> I recomment you to use the [`q-cli`](https://github.com/justemit/q-cli) to generate project with this boilerplate.
+> I recomment you to use the [`q-cli`](https://github.com/fantasticit/q-cli) to generate project with this boilerplate.
 
 1.  clone the repo via git:
 
 ```bash
-git clone --depth=1 https://github.com/justemit/electron-react-boilerplate.git ypur-project-name
+git clone --depth=1 https://github.com/fantasticit/electron-react-boilerplate.git your-project-name
 ```
 
 2. install dependencies with npm(or yarn).

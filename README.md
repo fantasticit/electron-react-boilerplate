@@ -12,12 +12,12 @@
 
 ## 安装
 
-> 可以试一下使用 [`q-cli`](https://github.com/justemit/q-cli)
+> 可以试一下使用 [`q-cli`](https://github.com/fantasticit/q-cli)
 
 1.  使用 git clone:
 
 ```bash
-git clone --depth=1 https://github.com/justemit/electron-react-boilerplate.git ypur-project-name
+git clone --depth=1 https://github.com/fantasticit/electron-react-boilerplate.git your-project-name
 ```
 
 2.  安装依赖
@@ -27,7 +27,7 @@ cd your-project-name
 npm install
 ```
 
-此外,如果使用 [`q-cli`](https://github.com/justemit/q-cli),则仅需:
+此外,如果使用 [`q-cli`](https://github.com/fantasticit/q-cli),则仅需:
 
 ```shell
 q-cli init your-project-name
