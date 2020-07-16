@@ -1,24 +1,24 @@
-const path = require('path')
-const webpack = require('webpack')
-const merge = require('webpack-merge')
-const UglyfyJsPlugin = require('uglifyjs-webpack-plugin')
-const baseConfig = require('./webpack.base')
+const path = require('path');
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+const UglyfyJsPlugin = require('uglifyjs-webpack-plugin');
+const baseConfig = require('./webpack.base');
 
 const config = merge(baseConfig, {
   mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
   entry: {
-    main: './src/main/index.js'
+    main: './src/main/index.js',
   },
   output: {
     filename: '[name].js',
     libraryTarget: 'commonjs2',
-    path: path.resolve(__dirname, '../dist')
+    path: path.resolve(__dirname, '../dist'),
   },
-  target: 'electron-main'
-})
+  target: 'electron-main',
+});
 
 if (process.env.NODE_ENV === 'production') {
-  config.optimization = {}
+  config.optimization = {};
   config.optimization.minimizer = [
     new UglyfyJsPlugin({
       cache: true,
@@ -26,11 +26,11 @@ if (process.env.NODE_ENV === 'production') {
       uglifyOptions: {
         compress: true,
         ecma: 6,
-        mangle: true
+        mangle: true,
       },
-      sourceMap: true
-    })
-  ]
+      sourceMap: true,
+    }),
+  ];
 }
 
-module.exports = config
+module.exports = config;

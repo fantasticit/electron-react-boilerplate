@@ -1,15 +1,15 @@
-const path = require('path')
-const webpack = require('webpack')
-const merge = require('webpack-merge')
-const baseConfig = require('./webpack.base')
-const UglyfyJsPlugin = require('uglifyjs-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const path = require('path');
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+const baseConfig = require('./webpack.base');
+const UglyfyJsPlugin = require('uglifyjs-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = merge(baseConfig, {
   mode: 'production',
   entry: {
-    renderer: './src/renderer/index.tsx'
+    renderer: './src/renderer/index.tsx',
   },
   devtool: false,
   optimization: {
@@ -20,13 +20,13 @@ module.exports = merge(baseConfig, {
         uglifyOptions: {
           compress: true,
           ecma: 6,
-          mangle: true
+          mangle: true,
         },
-        sourceMap: true
-      })
+        sourceMap: true,
+      }),
     ],
     runtimeChunk: {
-      name: 'manifest'
+      name: 'manifest',
     },
     splitChunks: {
       cacheGroups: {
@@ -34,7 +34,7 @@ module.exports = merge(baseConfig, {
           chunks: 'initial',
           minChunks: 2,
           maxInitialRequests: 5,
-          minSize: 0
+          minSize: 0,
         },
 
         vendor: {
@@ -42,10 +42,10 @@ module.exports = merge(baseConfig, {
           chunks: 'initial',
           name: 'vendor',
           priority: 10,
-          enforce: true
-        }
-      }
-    }
+          enforce: true,
+        },
+      },
+    },
   },
   plugins: [
     new OptimizeCssAssetsPlugin({}),
@@ -58,10 +58,10 @@ module.exports = merge(baseConfig, {
       minify: {
         removeComment: true, // 移除 HTML 中的注释
         collapseWhitespace: true, // 移除空白符
-        removeAttributeQuotes: true // 移除 HTML 中的属性引号
+        removeAttributeQuotes: true, // 移除 HTML 中的属性引号
       },
-      nodeModules: path.resolve(__dirname, '../node_modules')
-    })
+      nodeModules: path.resolve(__dirname, '../node_modules'),
+    }),
   ],
-  target: 'electron-renderer'
-})
+  target: 'electron-renderer',
+});

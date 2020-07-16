@@ -1,16 +1,12 @@
-const path = require('path')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-
-let port = process.argv[2] || 8080
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { port } = require('./get-port');
 
 module.exports = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, '../dist'),
-    publicPath:
-      process.env.NODE_ENV === 'development'
-        ? `http://localhost:${port}/`
-        : './'
+    publicPath: process.env.NODE_ENV === 'development' ? `http://localhost:${port}/` : './',
   },
   module: {
     rules: [
@@ -21,20 +17,47 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              publicPath: '../'
-            }
+              publicPath: '../',
+            },
           },
           'css-loader?importLoaders=1',
           {
             loader: 'postcss-loader',
             options: {
-              sourceMap: true
-            }
+              sourceMap: true,
+            },
           },
-          'sass-loader'
-        ]
+          'sass-loader',
+        ],
+        exclude: /\.module\.(s)?css$/,
       },
-
+      {
+        test: /\.module\.(s)?css$/,
+        use: [
+          'css-hot-loader',
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../',
+            },
+          },
+          {
+            loader: 'css-loader?importLoaders=1',
+            options: {
+              modules: true,
+              localIdentName: '[name]__[local]--[hash:base64:5]',
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+          'sass-loader',
+        ],
+        include: /\.module\.(s)?css$/,
+      },
       {
         test: /\.jsx?$/,
         use: [
@@ -43,11 +66,11 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              cacheDirectory: true
-            }
-          }
+              cacheDirectory: true,
+            },
+          },
         ],
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
 
       {
@@ -58,18 +81,18 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              cacheDirectory: true
-            }
+              cacheDirectory: true,
+            },
           },
           {
             loader: 'ts-loader',
             options: {
               happyPackMode: true,
-              transpileOnly: true
-            }
-          }
+              transpileOnly: true,
+            },
+          },
         ],
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
 
       {
@@ -77,8 +100,8 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'img/[name].[hash:7].[ext]'
-        }
+          name: 'img/[name].[hash:7].[ext]',
+        },
       },
 
       {
@@ -86,8 +109,8 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'media/[name]--[folder].[ext]'
-        }
+          name: 'media/[name]--[folder].[ext]',
+        },
       },
 
       {
@@ -96,25 +119,25 @@ module.exports = {
           loader: 'url-loader',
           query: {
             limit: 10000,
-            name: 'fonts/[name]--[folder].[ext]'
-          }
-        }
-      }
-    ]
+            name: 'fonts/[name]--[folder].[ext]',
+          },
+        },
+      },
+    ],
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'css/[name].css'
-    })
+      filename: 'css/[name].css',
+    }),
   ],
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.json', '.scss'],
     alias: {
-      '@': path.resolve(__dirname, '../src')
-    }
+      '@': path.resolve(__dirname, '../src'),
+    },
   },
   node: {
     __dirname: process.env.NODE_ENV !== 'production',
-    __filename: process.env.NODE_ENV !== 'production'
-  }
-}
+    __filename: process.env.NODE_ENV !== 'production',
+  },
+};

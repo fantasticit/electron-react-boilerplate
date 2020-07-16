@@ -4,7 +4,7 @@
   "main": "./dist/main.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test jest",
-    "dev": "node config/dev-runner.js",
+    "dev": "node config/dev-runner.js -p 32145",
     "build": "node config/build.js && electron-builder"
   },
   "build": {
@@ -103,6 +103,7 @@
     "ts-jest": "^23.0.1",
     "ts-loader": "^4.3.0",
     "typescript": "^2.8.3",
+    "typescript-plugin-css-modules": "^2.4.0",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "url-loader": "^1.0.1",
     "webpack": "^4.20.2",
