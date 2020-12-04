@@ -9,10 +9,11 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "noEmit": true,
-    "jsx": "preserve",
+    "jsx": "react",
     "baseUrl": "src",
     "paths": {
-      "@/*": ["./renderer/*"]
+      "@/*": ["./renderer/*"],
+      "electron-utils/*": ["../electron/for-renderer-utils/*"]
     },
     "noUnusedParameters": false,
     "preserveConstEnums": true,
@@ -29,5 +30,13 @@
       }
     ]
   },
-  "include": ["type.d.ts", "src/*.ts", "src/*.tsx", "src/**/*", "*.js", "node_modules/@types"]
+  "include": [
+    "type.d.ts",
+    "src/*.ts",
+    "src/*.tsx",
+    "src/**/*",
+    "*.js",
+    "node_modules/@types",
+    "electron"
+  ]
 }

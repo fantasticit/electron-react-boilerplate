@@ -15,3 +15,7 @@ declare module '*.jpeg';
 declare module '*.gif';
 declare module '*.bmp';
 declare module '*.tiff';
+
+declare const PACKAGE_JSON;
+declare const RUNTIME_CONFIG;
+declare const DEV_RENDERER_PORT;

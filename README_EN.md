@@ -6,11 +6,18 @@
 
 ## Screenshot
 
-![electron-react-boilerplate](https://user-images.githubusercontent.com/26452939/50197324-88a9ba80-0381-11e9-93a4-3db3dfd08433.png)
+![electron-react-boilerplate](https://user-images.githubusercontent.com/26452939/100304935-dce05f00-2fda-11eb-98f5-5af5bfd46a1a.gif)
+
+## Features
+
+- React Support: every window is developed by React, and you can switch to other fe framework
+- Multiple Windows Support: the `windows` config in `erb.config.js` file, config is same like electron BrowserWindows Construct Options
+- Touchbar Support：change it in `electron/set-touchbar.ts` if you need
+- Tray Support：change it in `electron/set-tray.ts` if you need
+- Dock Support：change it in `electron/set-dock-menu.ts` if you need
+- Update Support: the `build` config in `package.json` file
 
 ## Install
-
-> I recomment you to use the [`q-cli`](https://github.com/fantasticit/q-cli) to generate project with this boilerplate.
 
 1.  clone the repo via git:
 

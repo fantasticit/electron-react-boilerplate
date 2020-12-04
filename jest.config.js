@@ -1,16 +1,21 @@
 module.exports = {
-  verbose: true,
-  testURL: 'http://localhost:8081',
-  collectCoverage: true,
+  coverageDirectory: 'coverage',
+  globals: {
+    'ts-jest': {
+      tsConfig: 'tsconfig.json',
+    },
+  },
+  moduleFileExtensions: ['js', 'ts', 'tsx'],
   moduleNameMapper: {
-    // 需要mock的资源，这部分资源不影响代码逻辑，但是会影响jest加载资源
-    '\\.(css|scss|less)$': 'identity-obj-proxy', // 样式文件处理
+    '\\.(css|scss|less)$': 'identity-obj-proxy',
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
-      '<rootDir>/test/__mocks__/fileMock.js'
+      '<rootDir>/__test__/__mocks__/fileMock.js',
+    '^electron-utils(.*)$': '<rootDir>/electron/for-renderer-utils$1',
   },
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
+  testEnvironment: 'node',
+  testMatch: ['**/__tests__/*.+(ts|tsx|js)'],
   transform: {
-    '^.+\\.tsx?$': 'ts-jest'
+    '^.+\\.(ts|tsx)$': 'ts-jest',
   },
-  testMatch: ['<rootDir>/test/**/?(*.)(spec|test).ts?(x)']
-}
+  preset: 'ts-jest',
+};

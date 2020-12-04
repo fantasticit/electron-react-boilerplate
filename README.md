@@ -8,11 +8,18 @@
 
 ## 截图
 
-![electron-react-boilerplate](https://user-images.githubusercontent.com/26452939/50197324-88a9ba80-0381-11e9-93a4-3db3dfd08433.png)
+![electron-react-boilerplate](https://user-images.githubusercontent.com/26452939/100304935-dce05f00-2fda-11eb-98f5-5af5bfd46a1a.gif)
+
+## 特性
+
+- 支持 React：各窗口均采用 React 开发，也可根据需要更改为其他框架
+- 支持多窗口：修改 `erb.config.js` 中 windows 配置（配置和 electron BrowserWindows 构造参数一致）
+- 支持 Touchbar：可根据需要在 `electron/set-touchbar.ts` 更改
+- 支持 Tray：可根据需要在 `electron/set-tray.ts` 更改
+- 支持 Dock：可根据需要在 `electron/set-dock-menu` 更改
+- 支持更新：`package.json` 中的 `build` 配置
 
 ## 安装
-
-> 可以试一下使用 [`q-cli`](https://github.com/fantasticit/q-cli)
 
 1.  使用 git clone:
 
@@ -25,14 +32,6 @@ git clone --depth=1 https://github.com/fantasticit/electron-react-boilerplate.gi
 ```bash
 cd your-project-name
 npm install
-```
-
-此外,如果使用 [`q-cli`](https://github.com/fantasticit/q-cli),则仅需:
-
-```shell
-q-cli init your-project-name
-
-# 接下来选择模板时选择本项目即可
 ```
 
 ## 运行
