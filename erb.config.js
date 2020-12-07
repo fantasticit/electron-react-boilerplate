@@ -26,23 +26,3 @@ module.exports = {
     },
   ],
 };
-
-function rememberAndUpdateState(initialVal) {
-  let val = initialVal;
-
-  return (() => {
-    const setter = () => {
-      val = initialVal;
-    };
-    return [val, setter];
-  })();
-}
-
-function hit() {
-  var [count, setCount] = rememberAndUpdateState(0);
-
-  count++;
-  setCount(count);
-
-  console.log(`Hit count: ${count}`);
-}
