@@ -139,7 +139,7 @@ exports[`Hello, Electron & React 1`] = `
   <div
     style={
       Object {
-        "marginTop": 40,
+        "marginTop": 30,
       }
     }
   >
@@ -172,6 +172,29 @@ exports[`Hello, Electron & React 1`] = `
       onClick={[Function]}
     >
       关闭所有多开窗口
+    </button>
+  </div>
+  <div
+    style={
+      Object {
+        "marginTop": 20,
+      }
+    }
+  >
+    <input
+      onChange={[Function]}
+      type="text"
+      value="https://user-images.githubusercontent.com/26452939/100304935-dce05f00-2fda-11eb-98f5-5af5bfd46a1a.gif"
+    />
+    <button
+      onClick={[Function]}
+      style={
+        Object {
+          "marginLeft": 16,
+        }
+      }
+    >
+      查看图片
     </button>
   </div>
   <p>

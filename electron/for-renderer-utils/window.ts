@@ -20,7 +20,7 @@ export const closeWindow = (name: string) => ipc(WINDOW_CLOSE, { name });
  * @param message
  * @param body
  */
-export const sendToWindow = (name: string, message: string, body: unknown) => {
+export const sendToWindow = (name: string, message: string, body: any) => {
   name = name.toLowerCase();
   const window = remote.BrowserWindow.getAllWindows().find((window) => name === window['name']);
   if (!window) return;
@@ -38,7 +38,7 @@ export const sendToWindow = (name: string, message: string, body: unknown) => {
  * @param message
  * @param body
  */
-export const sendToAllWindow = (message: string, body: unknown) => {
+export const sendToAllWindow = (message: string, body: any) => {
   remote.BrowserWindow.getAllWindows().forEach((window) => {
     if (window.isVisible()) {
       window.webContents.send(message, body);
