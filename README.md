@@ -4,7 +4,7 @@
 
 ### 使用 React.js 开发 Electron App 应用
 
-[![Build Status](https://travis-ci.org/justemit/electron-react-boilerplate.svg?branch=master)](https://travis-ci.org/justemit/electron-react-boilerplate)
+[![Build Status](https://travis-ci.org/fantasticit/electron-react-boilerplate.svg?branch=master)](https://travis-ci.org/fantasticit/electron-react-boilerplate)
 
 ## 截图
 
